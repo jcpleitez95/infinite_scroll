@@ -1,0 +1,9 @@
+import React from 'react'
+
+export default function Header() {
+    return (
+        <div className="header">
+            <img className="logo" src="https://i.ibb.co/gjq4qHC/Logo-Makr-9ce-Tw-J.png" alt="Logo-Makr-9ce-Tw-J" border="0"/>
+        </div>
+    )
+}

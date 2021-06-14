@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: aqua;
+  background-color: dimgrey;
 }
 
 code {
@@ -12,9 +14,31 @@ code {
     monospace;
 }
 
-.list{
-  overflow: scroll;
-  margin: auto;
-  height: 700px;
+.infinite-scroll-component{
+  justify-content: center;
+  display: flex;
+  flex-flow: row wrap;
   text-align: center;
+}
+
+.pin-card{
+  width: 250px;
+  margin: 5px;
+  border: 2px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+.header{
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 250px;
+  background-color: black;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.logo{
+  margin-top: 75px;
 }

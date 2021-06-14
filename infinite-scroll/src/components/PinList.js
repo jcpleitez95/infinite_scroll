@@ -11,7 +11,7 @@ export default function PinList() {
       fetch('data.json')
       .then(response => response.json())
       .then(data => {
-        setPins(data.splice(0, 5))
+        setPins(data)
       })
     }, [])
 
@@ -24,9 +24,7 @@ export default function PinList() {
       }, [isScrolling])
 
     function handleScroll(e){
-        console.log(e.target.scrollTop)
-        console.log(isScrolling)
-        if(e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight){
+        if(e.target.documentElement.scrollHeight - e.target.documentElement.scrollTop === e.target.documentElement.clientHeight){
             setisScrolling(true)
         } else {
             setisScrolling(false)
@@ -34,7 +32,8 @@ export default function PinList() {
     }
     
     return (
-        <div className="list" onScroll={handleScroll}>
+      window.addEventListener("scroll", handleScroll),
+        <div className="list">
             <InfiniteScroll
                 dataLength={pins.length}
                 next={fetchData}
@@ -42,7 +41,7 @@ export default function PinList() {
                 loader={<h4>Loading...</h4>}
                 >
 
-                {pins.map((item) => <PinCard url={item.images.orig.url} key={Math.random()}/>)}
+                {pins.map((item) => <PinCard url={item.images.orig.url} key={Math.random()} description={item.description} pinner={item.pinner.username}/>)}
             
 
             </InfiniteScroll>
