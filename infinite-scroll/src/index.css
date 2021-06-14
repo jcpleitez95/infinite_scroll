@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: aqua;
   background-color: dimgrey;
+  overflow-x: hidden;
 }
 
 code {
@@ -37,8 +38,73 @@ code {
   background-color: black;
   margin-bottom: 10px;
   overflow: hidden;
+  
 }
 
 .logo{
   margin-top: 75px;
+}
+
+.sprite{
+  display: "inline-block";
+  position: "absolute";
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 32px;
+  background-position: -0px -64px;
+  background-repeat: "no-repeat";
+  image-rendering: "pixelated";
+  will-change: background-position;
+
+  animation-name: walk-cycle;
+  animation-timing-function: steps(3);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+}
+
+.sprite-container{
+  position: absolute;
+  transform: scale(0) translateX(-10vw);
+  will-change: transform;
+
+  animation-name: walk;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 25s;
+  animation-delay: 0;
+}
+
+@keyframes walk-cycle{
+  100% {
+    background-position: -96px -64px;
+  }
+}
+
+@keyframes walk{
+  0% {
+    transform: translateX(-10vw)
+  }
+  10% {
+    transform:translateX(10vw)
+  }
+  20% {
+    transform: translateX(30vw);
+  }
+  30% {
+    transform: translateX(50vw);
+  }
+  40% {
+    transform: translateX(70vw);
+  }
+  50% {
+    transform: translateX(90vw);
+  }
+  60% {
+    transform: translateX(110vw);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
 }
